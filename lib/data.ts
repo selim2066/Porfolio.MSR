@@ -156,53 +156,97 @@ export const projects = [
     featured: true,
   },
   {
-    id: "task-manager",
-    title: "TaskFlow — Project Manager",
-    subtitle: "Collaborative Task Management App",
-    shortDescription:
-      "A Trello-inspired drag-and-drop task management application with real-time collaboration features.",
-    image: "/projects/taskflow.jpg",
-    placeholder: "#1a1a2e",
-    tech: ["React", "Node.js", "Socket.io", "MongoDB", "Express", "BetterAuth"],
-    liveUrl: "https://your-taskflow-demo.vercel.app",
-    githubUrl: "https://github.com/yourusername/taskflow",
-    description: `TaskFlow is a real-time project management tool inspired by Trello. Users can create boards, add lists, and manage tasks with drag-and-drop. Socket.io enables real-time updates — when one team member moves a card, everyone sees it instantly. Authentication is handled with BetterAuth and bcrypt.`,
-    challenges: [
-      "Synchronizing drag-and-drop state across multiple connected clients using Socket.io rooms.",
-      "Handling optimistic UI updates that revert gracefully on server errors.",
-      "Designing an efficient MongoDB schema for nested board > list > card relationships.",
-    ],
-    improvements: [
-      "Add time tracking and burndown charts for sprint planning.",
-      "Integrate GitHub to automatically create cards from GitHub Issues.",
-      "Implement offline support with service workers and sync on reconnect.",
-    ],
-    featured: true,
-  },
+  id: "gadget-king",
+  title: "Gadget King",
+  subtitle: "React E-commerce Web Application",
+  shortDescription:
+    "A modern e-commerce frontend with cart, wishlist, product sorting, and analytics features.",
+
+  image: "/projects/banner gadgetking.jpg",
+  placeholder: "#1a1a2e",
+
+  tech: [
+    "React",
+    "Tailwind CSS",
+    "DaisyUI",
+    "React Router",
+    "Context API"
+  ],
+
+  liveUrl: "https://gadget-king.netlify.app/",
+  githubUrl: "https://github.com/selim2066/gadget-king",
+
+  description: `
+Gadget King is a responsive e-commerce web application built using React. 
+It allows users to browse products, sort them by price, and manage cart and wishlist efficiently. 
+
+The application includes product statistics tracking, showing how frequently items are added to the cart. 
+It focuses on clean UI/UX using Tailwind CSS and DaisyUI, along with smooth routing using React Router.
+  `,
+
+  challenges: [
+    "Managing global state for cart and wishlist using Context API without external libraries.",
+    "Implementing dynamic price sorting (ascending/descending) efficiently.",
+    "Tracking and visualizing product statistics based on user interactions.",
+    "Ensuring consistent UI updates across multiple pages using shared state."
+  ],
+
+  improvements: [
+    "Add backend integration (Node.js + Express + PostgreSQL) for persistent data.",
+    "Implement authentication system (JWT / BetterAuth).",
+    "Add product search and advanced filtering (category, rating, price range).",
+    "Integrate payment gateway for real checkout functionality.",
+    "Optimize performance and add loading skeletons."
+  ],
+
+  featured: true,
+},
   {
-    id: "blog-platform",
-    title: "DevBlog — Writing Platform",
-    subtitle: "MDX-Powered Developer Blog",
-    shortDescription:
-      "A clean, fast developer blog platform with MDX support, syntax highlighting, and a minimal CMS.",
-    image: "/projects/devblog.jpg",
-    placeholder: "#0f1a10",
-    tech: ["Next.js", "MDX", "Prisma", "PostgreSQL", "Tailwind CSS"],
-    liveUrl: "https://your-devblog-demo.vercel.app",
-    githubUrl: "https://github.com/yourusername/devblog",
-    description: `A developer-first blogging platform built with Next.js and MDX. It supports full Markdown with JSX components, syntax highlighting via Prism.js, and a tag-based categorization system. Blog posts are stored as .mdx files, while user data and comments are managed with Prisma and PostgreSQL.`,
-    challenges: [
-      "Setting up the MDX pipeline to support custom components like callouts and code blocks with copy buttons.",
-      "Implementing an efficient full-text search without a dedicated search engine.",
-      "Building a reading progress indicator that works smoothly without blocking the main thread.",
-    ],
-    improvements: [
-      "Add a newsletter subscription feature with Resend or Mailchimp integration.",
-      "Implement an AI-powered post summarizer using Claude API.",
-      "Build a minimal admin CMS dashboard for managing posts without touching code.",
-    ],
-    featured: false,
-  },
+  id: "pawstep",
+  title: "PawStep — Pet Adoption Platform",
+  subtitle: "Interactive Pet Adoption Web App",
+
+  shortDescription:
+    "A responsive web app for browsing and adopting pets with filtering, sorting, and interactive UI features.",
+
+  image: "/projects/pawstep.png",
+  placeholder: "#1f2937",
+
+  tech: [
+    "HTML",
+    "CSS",
+    "JavaScript (ES6+)",
+    "Tailwind CSS"
+  ],
+
+  liveUrl: "https://pawstep.netlify.app/",
+  githubUrl: "https://github.com/selim2066/pawstep",
+
+  description: `
+PawStep is a dynamic pet adoption web application that allows users to explore pets by category, sort them by price, and interact with each listing through likes, adoption actions, and detailed views.
+
+The application features a smooth adoption flow with a countdown timer, enhancing user engagement. Users can also save their favorite pets using a like system, which displays selected pets in a sidebar grid.
+
+Built with vanilla JavaScript and Tailwind CSS, the project focuses on responsive design, clean UI, and efficient DOM manipulation.
+  `,
+
+  challenges: [
+    "Managing dynamic UI updates and state without using a frontend framework.",
+    "Implementing real-time sorting and category filtering logic.",
+    "Handling liked pets state and rendering them in a separate sidebar.",
+    "Creating a smooth countdown-based adoption interaction using JavaScript."
+  ],
+
+  improvements: [
+    "Convert the project into React for better state management.",
+    "Add backend integration to persist pet data and user actions.",
+    "Implement user authentication (login/signup).",
+    "Add advanced filtering (age, breed, price range).",
+    "Improve performance and add loading skeletons."
+  ],
+
+  featured: false,
+}
 ];
 
 export const navLinks = [
