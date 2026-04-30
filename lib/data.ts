@@ -106,15 +106,23 @@ export const education = [
   },
 ];
 
-export const experience = [
-  // Uncomment and edit when you have experience
-  // {
-  //   role: "Junior Frontend Developer",
-  //   company: "Company Name",
-  //   duration: "Jan 2024 – Present",
-  //   description: "Building and maintaining React-based web applications...",
-  //   tech: ["React", "TypeScript", "Tailwind"],
-  // },
+type Experience = {
+  role: string;
+  company: string;
+  duration: string;
+  description: string;
+  tech: string[];
+};
+
+export const experience: Experience[] = [
+  {
+    role: "Frontend Developer Intern (React.js)",
+    company: "Battery Low Interactive",
+    duration: "June 2025 – August 2025",
+    description:
+      "Worked as a frontend developer intern focusing on building responsive and user-friendly interfaces. Contributed to real-world projects using modern React ecosystem tools, improved UI performance, and collaborated with the team to deliver clean and maintainable code.",
+    tech: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
+  },
 ];
 
 export const projects = [
@@ -255,6 +263,7 @@ export const navLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
