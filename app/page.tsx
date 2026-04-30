@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/ui/Footer";
 import { experience } from "@/lib/data";
+import TechStack from "@/components/sections/TechStack";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutSection />
       <ProjectsSection />
       <SkillsSection />
+      <TechStack />
       <EducationSection />
       {experience.length > 0 && <ExperienceSection />}
       

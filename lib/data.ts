@@ -57,32 +57,40 @@ export const skills = [
   {
     category: "Frontend",
     items: [
-      { name: "React.js", level: 90 },
+      { name: "React", level: 90 },
       { name: "Next.js", level: 85 },
       { name: "TypeScript", level: 78 },
-      { name: "Tailwind CSS", level: 92 },
+      { name: "Tailwind", level: 92 },
       { name: "Framer Motion", level: 75 },
       { name: "GSAP", level: 70 },
     ],
   },
   {
     category: "Backend",
-    items: [
+     items: [
       { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 88 },
+      { name: "Express", level: 88 },
+      { name: "Go", level: 60 },
       { name: "REST API", level: 90 },
-      { name: "Prisma ORM", level: 80 },
-      { name: "PostgreSQL", level: 75 }
+      { name: "JWT", level: 75 },
+      { name: "BetterAuth", level: 70 },
     ],
   },
   {
-    category: "Tools & Others",
+    category: "Database",
     items: [
-      { name: "Git & GitHub", level: 90 },
-      { name: "Docker", level: 60 },
-      { name: "Figma", level: 65 },
-      { name: "VS Code", level: 95 },
-      { name: "Postman", level: 88 },
+      { name: "PostgreSQL", level: 75 },
+      { name: "Prisma", level: 70 },
+      { name: "MySQL", level: 75 },
+    ],
+  },
+  {
+    category: "DevOps",
+    items: [
+       { name: "Git", level: 90 },
+    { name: "GitHub", level: 90 },
+    { name: "Docker", level: 60 },
+    { name: "Vercel", level: 85 },
     ],
   },
 ];

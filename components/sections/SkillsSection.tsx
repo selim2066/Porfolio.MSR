@@ -5,120 +5,78 @@ import { motion, useInView } from "framer-motion";
 import { Cpu, Server, Wrench } from "lucide-react";
 import { useRef } from "react";
 import {
-  SiAngular,
-  SiAstro,
-  SiCss,
-  SiDjango,
+  SiBetterauth,
   SiDocker,
   SiExpress,
-  SiFastapi,
   SiFigma,
-  SiFirebase,
-  SiFlask,
   SiGit,
   SiGithub,
-  SiGooglecloud,
-  SiGraphql,
-  SiHtml5,
+  SiGo,
   SiJavascript,
-  SiJest,
-  SiKubernetes,
-  SiLinear,
-  SiLinux,
-  SiMongodb,
-  SiMysql,
-  SiNestjs,
+  SiJsonwebtokens,
   SiNextdotjs,
   SiNodedotjs,
-  SiNotion,
+  SiOpenapiinitiative,
   SiPostgresql,
   SiPostman,
   SiPrisma,
-  SiPython,
   SiReact,
-  SiRedis,
-  SiRemix,
-  SiSass,
-  SiSqlite,
-  SiSupabase,
-  SiSvelte,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
-  SiVite,
-  SiVitest,
-  SiVuedotjs,
-  SiWebpack,
 } from "react-icons/si";
 
-/* ───────────────── ICONS ───────────────── */
+/* ───────── ICON MAP ───────── */
 
 const skillIcons: Record<string, { icon: any; color: string }> = {
-  HTML: { icon: SiHtml5, color: "#E34F26" },
-  CSS: { icon: SiCss, color: "#1572B6" },
-  Sass: { icon: SiSass, color: "#CC6699" },
-  JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
-  TypeScript: { icon: SiTypescript, color: "#3178C6" },
   React: { icon: SiReact, color: "#61DAFB" },
   "Next.js": { icon: SiNextdotjs, color: "#ffffff" },
-  "Vue.js": { icon: SiVuedotjs, color: "#4FC08D" },
-  Angular: { icon: SiAngular, color: "#DD0031" },
-  Svelte: { icon: SiSvelte, color: "#FF3E00" },
-  Astro: { icon: SiAstro, color: "#FF5D01" },
-  Remix: { icon: SiRemix, color: "#ffffff" },
+  TypeScript: { icon: SiTypescript, color: "#3178C6" },
   Tailwind: { icon: SiTailwindcss, color: "#06B6D4" },
-  Vite: { icon: SiVite, color: "#646CFF" },
-  Webpack: { icon: SiWebpack, color: "#8DD6F9" },
-  Figma: { icon: SiFigma, color: "#F24E1E" },
 
-  Node: { icon: SiNodedotjs, color: "#8CC84B" },
+  "Framer Motion": { icon: SiFigma, color: "#ff4d4d" }, // fallback
+  GSAP: { icon: SiJavascript, color: "#88ce02" }, // no official
+
   "Node.js": { icon: SiNodedotjs, color: "#8CC84B" },
   Express: { icon: SiExpress, color: "#ffffff" },
-  NestJS: { icon: SiNestjs, color: "#E0234E" },
-  Python: { icon: SiPython, color: "#3776AB" },
-  Django: { icon: SiDjango, color: "#00e5b0" },
-  Flask: { icon: SiFlask, color: "#ffffff" },
-  FastAPI: { icon: SiFastapi, color: "#009688" },
-  GraphQL: { icon: SiGraphql, color: "#E10098" },
 
-  MongoDB: { icon: SiMongodb, color: "#47A248" },
-  PostgreSQL: { icon: SiPostgresql, color: "#4169E1" },
-  MySQL: { icon: SiMysql, color: "#4479A1" },
-  SQLite: { icon: SiSqlite, color: "#003B57" },
-  Redis: { icon: SiRedis, color: "#FF4438" },
   Prisma: { icon: SiPrisma, color: "#ffffff" },
-  Firebase: { icon: SiFirebase, color: "#FFCA28" },
-  Supabase: { icon: SiSupabase, color: "#3ECF8E" },
+  PostgreSQL: { icon: SiPostgresql, color: "#4169E1" },
+
+  Go: { icon: SiGo, color: "#00ADD8" },
+
+  JWT: { icon: SiJsonwebtokens, color: "#000000" },
+
+  "REST API": { icon: SiOpenapiinitiative, color: "#6BA539" },
+
+  BetterAuth: { icon: SiBetterauth, color: "#EB5424" }, // closest match
 
   Git: { icon: SiGit, color: "#F05032" },
   GitHub: { icon: SiGithub, color: "#ffffff" },
   Docker: { icon: SiDocker, color: "#2496ED" },
-  Kubernetes: { icon: SiKubernetes, color: "#326CE5" },
-  GCP: { icon: SiGooglecloud, color: "#4285F4" },
-  Vercel: { icon: SiVercel, color: "#ffffff" },
-  Linux: { icon: SiLinux, color: "#FCC624" },
-  Jest: { icon: SiJest, color: "#C21325" },
-  Vitest: { icon: SiVitest, color: "#6E9F18" },
+  Figma: { icon: SiFigma, color: "#F24E1E" },
   Postman: { icon: SiPostman, color: "#FF6C37" },
-  Linear: { icon: SiLinear, color: "#5E6AD2" },
-  Notion: { icon: SiNotion, color: "#ffffff" },
+
+  "VS Code": { icon: SiVercel, color: "#3b82f6" }, // cleaner fallback
 };
 
-/* ───────────────── CATEGORY META ───────────────── */
+/* ───────── CATEGORY META ───────── */
 
 const categoryIcons: Record<string, any> = {
   Frontend: Cpu,
   Backend: Server,
-  "Tools & Others": Wrench,
+  Database: Server,
+  DevOps: Wrench,
 };
 
 const categoryColors: Record<string, string> = {
   Frontend: "#00e5b0",
   Backend: "#6366f1",
-  "Tools & Others": "#f59e0b",
+  Database: "#ec4899",
+  DevOps: "#f59e0b",
 };
 
-/* ───────────────── SKILL BAR ───────────────── */
+/* ───────── SKILL BAR ───────── */
 
 function SkillBar({
   name,
@@ -163,11 +121,8 @@ function SkillBar({
   );
 }
 
-/* ───────────────── TAG ───────────────── */
+/* ───────── CHIP ───────── */
 
-/* ───────────────── MARQUEE CHIP ───────────────── */
-
-/* ───────────────── CHIP ───────────────── */
 function SkillChip({ name }: { name: string }) {
   const entry = skillIcons[name];
   const Icon = entry?.icon;
@@ -175,16 +130,11 @@ function SkillChip({ name }: { name: string }) {
 
   return (
     <motion.div
-      whileHover={{
-        y: -6,
-        scale: 1.08,
-      }}
+      whileHover={{ y: -6, scale: 1.08 }}
       transition={{ type: "spring", stiffness: 320, damping: 18 }}
       className="group relative flex items-center gap-3 px-6 py-3 rounded-xl shrink-0
-      border border-white/10 bg-white/5 backdrop-blur-xl cursor-pointer
-      overflow-hidden"
+      border border-white/10 bg-white/5 backdrop-blur-xl cursor-pointer overflow-hidden"
     >
-      {/* glow background */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 blur-xl"
         style={{
@@ -192,24 +142,18 @@ function SkillChip({ name }: { name: string }) {
         }}
       />
 
-      {/* icon */}
       {Icon && (
         <Icon
           size={18}
           className="relative z-10 transition duration-300 group-hover:scale-125"
-          style={{
-            color,
-            filter: `drop-shadow(0 0 0px ${color})`,
-          }}
+          style={{ color }}
         />
       )}
 
-      {/* text */}
       <span className="relative z-10 text-sm text-white font-mono tracking-wide">
         {name}
       </span>
 
-      {/* border glow */}
       <div
         className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300"
         style={{
@@ -220,14 +164,13 @@ function SkillChip({ name }: { name: string }) {
   );
 }
 
-/* ───────────────── MAIN COMPONENT ───────────────── */
+/* ───────── MAIN ───────── */
 
 export default function SkillsSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const allSkills = skills.flatMap((cat) => cat.items).map((item) => item.name);
-
+  const allSkills = skills.flatMap((cat) => cat.items).map((i) => i.name);
   const row1 = allSkills.slice(0, Math.ceil(allSkills.length / 2));
   const row2 = allSkills.slice(Math.ceil(allSkills.length / 2));
 
@@ -245,55 +188,28 @@ export default function SkillsSection() {
           className="mb-14"
         >
           <p className="section-label mb-3">What I work with</p>
-
           <h2 className="text-4xl md:text-6xl font-bold text-white">
             My <span className="text-[var(--color-accent)]">Skills</span>
           </h2>
         </motion.div>
 
-        {/* MARQUEE */}
-        {/* MARQUEE */}
-        <div className="mb-16 space-y-5">
-          {/* Row 1 */}
-          <div className="overflow-hidden group">
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                duration: 28,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="marquee-track flex gap-4 min-w-max py-2"
-            >
-              {[...row1, ...row1].map((skill, i) => (
-                <SkillChip key={i} name={skill} />
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Row 2 */}
-          <div className="overflow-hidden group">
+        <div className="overflow-hidden">
             <motion.div
               animate={{ x: ["-50%", "0%"] }}
-              transition={{
-                duration: 32,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="marquee-track flex gap-4 min-w-max py-2"
+              transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+              className="flex gap-4 min-w-max py-2"
             >
-              {[...row2, ...row2].map((skill, i) => (
-                <SkillChip key={i} name={skill} />
+              {[...row2, ...row2].map((s, i) => (
+                <SkillChip key={i} name={s} />
               ))}
             </motion.div>
           </div>
-        </div>
 
         {/* CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {skills.map((category, ci) => {
-            const Icon = categoryIcons[category.category] || Cpu;
-            const color = categoryColors[category.category] || "#00e5b0";
+            const Icon = categoryIcons[category.category];
+            const color = categoryColors[category.category];
 
             return (
               <motion.div
@@ -334,6 +250,23 @@ export default function SkillsSection() {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* MARQUEE */}
+        <div className="mb-16 space-y-5">
+          <div className="overflow-hidden">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+              className="flex gap-4 min-w-max py-2"
+            >
+              {[...row1, ...row1].map((s, i) => (
+                <SkillChip key={i} name={s} />
+              ))}
+            </motion.div>
+          </div>
+
+          
         </div>
       </div>
     </section>
