@@ -5,6 +5,7 @@
 export const personalInfo = {
   name: "Md. Selim Reza",
   firstName: "Md Selim",
+  Nickname: "Selim",
   lastName: "Reza",
   designation: "Full Stack Developer",
   tagline: "I craft fast, elegant, and scalable web experiences.",

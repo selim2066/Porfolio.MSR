@@ -82,10 +82,10 @@ export default function Navbar() {
               <Terminal size={14} style={{ color: "var(--color-accent)" }} />
             </div>
             <span
-              className="font-display font-bold text-base hidden sm:block"
+              className="font-display font-bold text-base text-xl hidden sm:block"
               style={{ color: "var(--color-text)" }}
             >
-              {personalInfo.firstName}
+              {personalInfo.Nickname}
               <span style={{ color: "var(--color-accent)" }}>.</span>
             </span>
           </motion.button>
