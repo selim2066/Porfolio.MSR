@@ -281,3 +281,11 @@ img {
   height: auto;
   display: block;
 }
+
+.marquee-track {
+  animation-play-state: running;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused !important;
+}

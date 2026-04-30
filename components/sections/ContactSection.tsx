@@ -227,7 +227,7 @@ export default function ContactSection() {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="Md Selim Reza"
                     style={inputStyle}
                     onFocus={(e) =>
                       (e.target.style.borderColor = "var(--color-accent)")
@@ -249,7 +249,7 @@ export default function ContactSection() {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
+                    placeholder="mdselimreza.dev@gmail.com"
                     style={inputStyle}
                     onFocus={(e) =>
                       (e.target.style.borderColor = "var(--color-accent)")
