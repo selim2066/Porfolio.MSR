@@ -18,10 +18,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative my-20">
+    <footer className="relative py-16 bg-[var(--color-surface)]">
 
       {/* Glass container */}
-      <div className="container-custom">
+      <div className="container-custom ">
         <div
           className="
             backdrop-blur-xl 

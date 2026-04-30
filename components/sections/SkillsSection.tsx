@@ -2,7 +2,7 @@
 
 import { skills } from "@/lib/data";
 import { motion, useInView } from "framer-motion";
-import { Cpu, Server, Wrench } from "lucide-react";
+import { Cpu, Server, Database, Wrench,  Workflow  } from "lucide-react";
 import { useRef } from "react";
 import {
   SiBetterauth,
@@ -65,8 +65,8 @@ const skillIcons: Record<string, { icon: any; color: string }> = {
 const categoryIcons: Record<string, any> = {
   Frontend: Cpu,
   Backend: Server,
-  Database: Server,
-  DevOps: Wrench,
+  Database: Database,
+  DevOps: Workflow,
 };
 
 const categoryColors: Record<string, string> = {
@@ -185,7 +185,7 @@ export default function SkillsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="mb-14"
+          className="mb-12 flex flex-col items-center justify-center"
         >
           <p className="section-label mb-3">What I work with</p>
           <h2 className="text-4xl md:text-6xl font-bold text-white">
@@ -194,16 +194,16 @@ export default function SkillsSection() {
         </motion.div>
 
         <div className="overflow-hidden">
-            <motion.div
-              animate={{ x: ["-50%", "0%"] }}
-              transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-              className="flex gap-4 min-w-max py-2"
-            >
-              {[...row2, ...row2].map((s, i) => (
-                <SkillChip key={i} name={s} />
-              ))}
-            </motion.div>
-          </div>
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+            className="flex gap-4 min-w-max py-2"
+          >
+            {[...row2, ...row2].map((s, i) => (
+              <SkillChip key={i} name={s} />
+            ))}
+          </motion.div>
+        </div>
 
         {/* CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -265,8 +265,6 @@ export default function SkillsSection() {
               ))}
             </motion.div>
           </div>
-
-          
         </div>
       </div>
     </section>

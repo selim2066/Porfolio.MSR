@@ -1,27 +1,29 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { aboutMe } from "@/lib/data";
-import { Code2, Heart, Briefcase, Sparkles } from "lucide-react";
+import { Briefcase, Code2, GraduationCap, Sparkles } from "lucide-react";
+import { useRef } from "react";
 
 const cards = [
   {
     icon: Code2,
-    title: "My Journey",
-    content: (d: typeof aboutMe) => d.journey,
+    title: "Full-Stack Developer",
+    content: () =>
+      "I am a Full-Stack Web Developer specializing in building modern, scalable web applications using Next.js, React, Node.js, Express, Prisma, and PostgreSQL. I focus on clean architecture, performance, and real-world usability.",
     color: "#00e5b0",
   },
   {
     icon: Briefcase,
-    title: "How I Work",
-    content: (d: typeof aboutMe) => d.workStyle,
+    title: "Experience & Projects",
+    content: () =>
+      "I have worked as a Web Developer Intern at Battery Low Interactive and built production-level projects like MediStore (full-stack e-commerce), GadgetKing, and PawStep using modern web technologies.",
     color: "#6366f1",
   },
   {
-    icon: Heart,
-    title: "Beyond Code",
-    content: (d: typeof aboutMe) => d.hobbies,
+    icon: GraduationCap,
+    title: "CSE Background",
+    content: () =>
+      "I have completed my B.Sc. in Computer Science & Engineering from Green University of Bangladesh. My academic background strengthens my fundamentals in software engineering, databases, and system design.",
     color: "#f59e0b",
   },
 ];
@@ -38,17 +40,21 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-12 flex flex-col items-center justify-center"
         >
           <p className="section-label mb-3">Get to know me</p>
+
           <div className="flex items-end gap-6 flex-wrap">
             <h2
               className="font-display font-bold leading-none"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--color-text)" }}
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                color: "var(--color-text)",
+              }}
             >
-              About{" "}
-              <span style={{ color: "var(--color-accent)" }}>Me</span>
+              About <span style={{ color: "var(--color-accent)" }}>Me</span>
             </h2>
+
             <div
               className="h-px flex-1 hidden md:block"
               style={{ background: "var(--color-border)", minWidth: "60px" }}
@@ -57,31 +63,41 @@ export default function AboutSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Intro + Stats */}
+          {/* Intro */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2 flex flex-col gap-6"
           >
-            <div
-              className="card-base p-6"
-            >
+            <div className="card-base p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles size={18} style={{ color: "var(--color-accent)" }} />
                 <span className="section-label">Introduction</span>
               </div>
+
               <p
                 className="leading-relaxed text-base"
                 style={{ color: "var(--color-muted-2)" }}
               >
-                {aboutMe.intro}
+                I am a passionate Full-Stack Developer focused on building
+                high-performance, user-friendly web applications. I enjoy
+                working across the entire stack — from frontend UI to backend
+                systems and database architecture.
               </p>
             </div>
 
-            {/* Stats grid */}
+            {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
-              {aboutMe.stats.map((stat, i) => (
+              {[
+                { label: "Projects", value: "10+" },
+                { label: "Education", value: "B.Sc. in CSE" },
+                {
+                  label: "Experience",
+                  value: "Intern @ Battery Low Interactive",
+                },
+                { label: "Role", value: "Full-Stack Developer" },
+              ].map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -96,7 +112,7 @@ export default function AboutSection() {
                     {stat.value}
                   </p>
                   <p
-                    className="text-xs font-mono leading-tight"
+                    className="text-xs font-mono"
                     style={{ color: "var(--color-muted)" }}
                   >
                     {stat.label}
@@ -106,10 +122,11 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Detail Cards */}
+          {/* Cards */}
           <div className="lg:col-span-3 flex flex-col gap-5">
             {cards.map((card, i) => {
               const Icon = card.icon;
+
               return (
                 <motion.div
                   key={card.title}
@@ -127,6 +144,7 @@ export default function AboutSection() {
                   >
                     <Icon size={18} style={{ color: card.color }} />
                   </div>
+
                   <div>
                     <h3
                       className="font-display font-semibold text-base mb-2"
@@ -134,11 +152,12 @@ export default function AboutSection() {
                     >
                       {card.title}
                     </h3>
+
                     <p
                       className="text-sm leading-relaxed"
                       style={{ color: "var(--color-muted-2)" }}
                     >
-                      {card.content(aboutMe)}
+                      {card.content()}
                     </p>
                   </div>
                 </motion.div>

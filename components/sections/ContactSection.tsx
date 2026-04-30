@@ -1,19 +1,19 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { emailjsConfig, personalInfo } from "@/lib/data";
 import emailjs from "emailjs-com";
-import { personalInfo, emailjsConfig } from "@/lib/data";
+import { motion, useInView } from "framer-motion";
 import {
-  Mail,
-  Phone,
-  MessageCircle,
-  Send,
-  CheckCircle2,
   AlertCircle,
+  CheckCircle2,
   Loader2,
+  Mail,
   MapPin,
+  MessageCircle,
+  Phone,
+  Send,
 } from "lucide-react";
+import { useRef, useState } from "react";
 
 type FormState = {
   name: string;
@@ -38,7 +38,7 @@ export default function ContactSection() {
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -63,13 +63,15 @@ export default function ContactSection() {
           message: form.message,
           to_email: personalInfo.email,
         },
-        emailjsConfig.publicKey
+        emailjsConfig.publicKey,
       );
       setStatus("success");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch {
       setStatus("error");
-      setErrorMsg("Something went wrong. Please try again or email me directly.");
+      setErrorMsg(
+        "Something went wrong. Please try again or email me directly.",
+      );
     }
   };
 
@@ -130,16 +132,18 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-12 flex flex-col items-center justify-center"
         >
           <p className="section-label mb-3">Get in touch</p>
           <div className="flex items-end gap-6 flex-wrap">
             <h2
               className="font-display font-bold leading-none"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--color-text)" }}
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                color: "var(--color-text)",
+              }}
             >
-              Contact{" "}
-              <span style={{ color: "var(--color-accent)" }}>Me</span>
+              Contact <span style={{ color: "var(--color-accent)" }}>Me</span>
             </h2>
             <div
               className="h-px flex-1 hidden md:block"
@@ -176,7 +180,10 @@ export default function ContactSection() {
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
                   whileHover={{ x: 4 }}
                   className="card-base p-4 flex items-center gap-4 cursor-pointer"
-                  style={{ background: "var(--color-bg)", textDecoration: "none" }}
+                  style={{
+                    background: "var(--color-bg)",
+                    textDecoration: "none",
+                  }}
                 >
                   <div
                     className="w-11 h-11 rounded-lg flex items-center justify-center shrink-0"
@@ -213,14 +220,18 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-3"
           >
-            <div className="card-base p-6 md:p-8" style={{ background: "var(--color-bg)" }}>
+            <div
+              className="card-base p-6 md:p-8"
+              style={{ background: "var(--color-bg)" }}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label
                     className="block text-xs font-mono mb-2"
                     style={{ color: "var(--color-muted)" }}
                   >
-                    Your Name <span style={{ color: "var(--color-accent)" }}>*</span>
+                    Your Name{" "}
+                    <span style={{ color: "var(--color-accent)" }}>*</span>
                   </label>
                   <input
                     type="text"
@@ -242,7 +253,8 @@ export default function ContactSection() {
                     className="block text-xs font-mono mb-2"
                     style={{ color: "var(--color-muted)" }}
                   >
-                    Email Address <span style={{ color: "var(--color-accent)" }}>*</span>
+                    Email Address{" "}
+                    <span style={{ color: "var(--color-accent)" }}>*</span>
                   </label>
                   <input
                     type="email"
@@ -289,7 +301,8 @@ export default function ContactSection() {
                   className="block text-xs font-mono mb-2"
                   style={{ color: "var(--color-muted)" }}
                 >
-                  Message <span style={{ color: "var(--color-accent)" }}>*</span>
+                  Message{" "}
+                  <span style={{ color: "var(--color-accent)" }}>*</span>
                 </label>
                 <textarea
                   name="message"
@@ -297,7 +310,11 @@ export default function ContactSection() {
                   onChange={handleChange}
                   placeholder="Tell me about your project or just say hi..."
                   rows={5}
-                  style={{ ...inputStyle, resize: "vertical", minHeight: "120px" }}
+                  style={{
+                    ...inputStyle,
+                    resize: "vertical",
+                    minHeight: "120px",
+                  }}
                   onFocus={(e) =>
                     (e.target.style.borderColor = "var(--color-accent)")
                   }
@@ -318,7 +335,10 @@ export default function ContactSection() {
                     border: "1px solid rgba(0, 229, 176, 0.3)",
                   }}
                 >
-                  <CheckCircle2 size={16} style={{ color: "var(--color-accent)" }} />
+                  <CheckCircle2
+                    size={16}
+                    style={{ color: "var(--color-accent)" }}
+                  />
                   <p
                     className="text-sm font-mono"
                     style={{ color: "var(--color-accent)" }}
@@ -369,7 +389,7 @@ export default function ContactSection() {
                 className="text-xs font-mono text-center mt-3"
                 style={{ color: "var(--color-muted)" }}
               >
-               Jajhakallah Khairan for visiting my portfolio!
+                Jajhakallah Khairan for visiting my portfolio!
               </p>
             </div>
           </motion.div>

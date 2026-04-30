@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const skills = [
   {
@@ -83,14 +83,17 @@ export default function TechStack() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="skills" className="section-padding" ref={ref}>
+    <section
+      id="skills"
+      className="section-padding bg-[var(--color-surface)]"
+      ref={ref}
+    >
       <div className="container-custom">
-
         {/* Header — terminal style like reference */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="mb-14"
+          className="mb-12 flex flex-col items-center justify-center"
         >
           <p className="section-label mb-3">Tools and Technologies</p>
           <h2 className="text-4xl md:text-6xl font-bold text-white">
@@ -138,9 +141,12 @@ export default function TechStack() {
                   height={34}
                   className="relative z-10 transition-all duration-300 group-hover:scale-110"
                   style={{
-                    filter: skill.name === "Express" || skill.name === "GitHub" || skill.name === "Vercel"
-                      ? "invert(1)"
-                      : "none",
+                    filter:
+                      skill.name === "Express" ||
+                      skill.name === "GitHub" ||
+                      skill.name === "Vercel"
+                        ? "invert(1)"
+                        : "none",
                   }}
                   onError={(e) => {
                     // fallback: show first letter if icon fails

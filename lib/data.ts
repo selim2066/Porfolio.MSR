@@ -101,16 +101,16 @@ export const education = [
     institution: "Green University of Bangladesh",
     duration: "2021 – 2025",
     description:
-      "Studying core CS fundamentals including data structures, algorithms, databases, computer networks, Machine Learning and AI. ",
-    current: true,
+      "Studied core computer science fundamentals including data structures, algorithms, databases, computer networks, and introductory concepts in Machine Learning and Artificial Intelligence.",
+    status: "Completed",
   },
   {
-    degree: "Higher Secondary Certificate (HSC)",
+    degree: "Higher Secondary Certificate (HSC) — Science",
     institution: "Govt Shah Sultan College, Bogura",
     duration: "2017 – 2020",
     description:
-      "Completed HSC in Science group. Developed early interest in mathematics and programming during this period.",
-    current: false,
+      "Completed higher secondary education with a focus on science, building a strong foundation in mathematics and analytical thinking that led to an interest in programming.",
+    status: "Completed",
   },
 ];
 

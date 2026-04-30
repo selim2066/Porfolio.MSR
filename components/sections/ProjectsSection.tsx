@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import { projects } from "@/lib/data";
-import Link from "next/link";
-import { ExternalLink, Github, ArrowRight, Layers } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, ExternalLink, Github, Layers } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
 
 export default function ProjectsSection() {
   const ref = useRef(null);
@@ -19,13 +19,16 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-12 flex flex-col items-center justify-center"
         >
           <p className="section-label mb-3">What I&apos;ve built</p>
           <div className="flex items-end gap-6 flex-wrap">
             <h2
               className="font-display font-bold leading-none"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--color-text)" }}
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                color: "var(--color-text)",
+              }}
             >
               Featured{" "}
               <span style={{ color: "var(--color-accent)" }}>Projects</span>
@@ -49,12 +52,12 @@ export default function ProjectsSection() {
             >
               {/* Project Image / Placeholder */}
               <div className="relative h-48 overflow-hidden">
-  <Image
-    src={project.image}
-    alt={project.title}
-    fill
-    className="object-cover"
-  />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
                 <div className="w-full h-full flex items-center justify-center">
                   <div className="text-center">
                     <Layers
@@ -138,7 +141,10 @@ export default function ProjectsSection() {
                     <span
                       key={t}
                       className="tag-pill"
-                      style={{ fontSize: "0.65rem", padding: "0.15rem 0.55rem" }}
+                      style={{
+                        fontSize: "0.65rem",
+                        padding: "0.15rem 0.55rem",
+                      }}
                     >
                       {t}
                     </span>
@@ -146,7 +152,10 @@ export default function ProjectsSection() {
                   {project.tech.length > 4 && (
                     <span
                       className="tag-pill"
-                      style={{ fontSize: "0.65rem", padding: "0.15rem 0.55rem" }}
+                      style={{
+                        fontSize: "0.65rem",
+                        padding: "0.15rem 0.55rem",
+                      }}
                     >
                       +{project.tech.length - 4}
                     </span>

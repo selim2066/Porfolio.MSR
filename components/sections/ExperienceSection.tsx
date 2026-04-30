@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import { experience } from "@/lib/data";
+import { motion, useInView } from "framer-motion";
 import { Briefcase, Calendar } from "lucide-react";
+import { useRef } from "react";
 
 export default function ExperienceSection() {
   const ref = useRef(null);
@@ -14,9 +14,8 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="section-padding"
+      className="section-padding flex items-center justify-center"
       ref={ref}
-      style={{ background: "var(--color-surface)" }}
     >
       <div className="container-custom">
         {/* Header */}
@@ -24,13 +23,16 @@ export default function ExperienceSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-12 flex flex-col items-center justify-center"
         >
           <p className="section-label mb-3">Work history</p>
           <div className="flex items-end gap-6 flex-wrap">
             <h2
               className="font-display font-bold leading-none"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--color-text)" }}
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                color: "var(--color-text)",
+              }}
             >
               My{" "}
               <span style={{ color: "var(--color-accent)" }}>Experience</span>
@@ -61,7 +63,10 @@ export default function ExperienceSection() {
                     border: "1px solid var(--color-border)",
                   }}
                 >
-                  <Briefcase size={16} style={{ color: "var(--color-accent)" }} />
+                  <Briefcase
+                    size={16}
+                    style={{ color: "var(--color-accent)" }}
+                  />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between flex-wrap gap-2 mb-1">
