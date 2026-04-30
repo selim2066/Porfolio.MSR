@@ -32,7 +32,7 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Your Name | Full Stack Developer</title>
+        <title>Md Selim Reza| Full Stack Developer</title>
         <meta
           name="description"
           content="Full Stack Developer portfolio — React, Next.js, Node.js, PostgreSQL"
