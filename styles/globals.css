@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+  --font-display: 'Syne', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg: #080b0f;
+  --color-surface: #0f1318;
+  --color-surface-2: #161c24;
+  --color-border: rgba(0, 229, 176, 0.12);
+
+  --color-accent: #00e5b0;
+  --color-accent-dim: rgba(0, 229, 176, 0.15);
+  --color-accent-glow: rgba(0, 229, 176, 0.35);
+
+  --color-text: #e8edf2;
+  --color-muted: #5a6a7a;
+  --color-muted-2: #8899aa;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* =========================
+   SELECTION
+========================= */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+/* =========================
+   TYPOGRAPHY HELPERS
+========================= */
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+/* =========================
+   COLORS
+========================= */
+.text-accent { color: var(--color-accent); }
+.bg-accent { background: var(--color-accent); }
+
+/* =========================
+   LAYOUT
+========================= */
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 7rem 0;
+}
+
+/* =========================
+   GRID BACKGROUND
+========================= */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 229, 176, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 176, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* =========================
+   GLOW EFFECTS
+========================= */
+.glow-accent {
+  box-shadow: 0 0 30px var(--color-accent-glow),
+              0 0 60px rgba(0, 229, 176, 0.12);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+/* =========================
+   CARD
+========================= */
+.card-base {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card-base:hover {
+  border-color: rgba(0, 229, 176, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 229, 176, 0.08);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px var(--color-accent-glow);
+  background: #00ffd0;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 0.5rem;
+  color: var(--color-accent);
+  background: transparent;
+  font-family: var(--font-display);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: var(--color-accent-dim);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TAGS
+========================= */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+}
+
+/* =========================
+   TYPEWRITER (FIXED + PREMIUM)
+========================= */
+.typewriter-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--color-muted-2);
+  transition: all 0.3s ease;
+}
+
+.typewriter-text.active {
+  color: var(--color-text);
+  text-shadow: 0 0 18px var(--color-accent-glow);
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  margin-left: 4px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  animation: blink 0.9s infinite;
+  box-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* =========================
+   PROFILE RING (FIXED)
+========================= */
+.profile-ring {
+  position: relative;
+}
+
+.profile-ring::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color-accent),
+    transparent 35%,
+    var(--color-accent)
+  );
+  animation: spin 5s linear infinite;
+  filter: blur(0.6px);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   SOCIAL ICON HOVER
+========================= */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.1);
+  color: var(--color-accent);
+  box-shadow: 0 0 18px var(--color-accent-glow);
+}
+
+/* =========================
+   FOCUS
+========================= */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =========================
+   IMAGE SAFETY
+========================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
