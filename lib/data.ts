@@ -142,7 +142,7 @@ export const projects = [
     shortDescription:
       "A full-stack e-commerce platform for OTC medicines with authentication, role-based access, product management, and secure backend APIs.",
     image: "/projects/medistore-hero.png",
-    placeholder: "#1a2535",
+   
     tech: [
       "Next.js",
       "TypeScript",
