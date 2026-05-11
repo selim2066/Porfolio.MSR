@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import { useEffect } from "react";
 import "../styles/globals.css";
 
 export default function RootLayout({
@@ -33,6 +33,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Md Selim Reza| Full Stack Developer</title>
+
         <meta
           name="description"
           content="Full Stack Developer portfolio — React, Next.js, Node.js, PostgreSQL"

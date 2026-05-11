@@ -15,7 +15,7 @@ export const personalInfo = {
   whatsapp: "+880 1580-912090",
   location: "Dhaka, Bangladesh",
   resumeUrl: "/resume.pdf", // Place your resume PDF in /public folder
-  profileImage: "/profile.jpg", // Place your photo in /public folder
+  profileImage: "/me-prof.jpeg", // Place your photo in /public folder
   availableForWork: true,
 };
 
@@ -68,7 +68,7 @@ export const skills = [
   },
   {
     category: "Backend",
-     items: [
+    items: [
       { name: "Node.js", level: 85 },
       { name: "Express", level: 88 },
       { name: "Go", level: 60 },
@@ -88,10 +88,10 @@ export const skills = [
   {
     category: "DevOps",
     items: [
-       { name: "Git", level: 90 },
-    { name: "GitHub", level: 90 },
-    { name: "Docker", level: 60 },
-    { name: "Vercel", level: 85 },
+      { name: "Git", level: 90 },
+      { name: "GitHub", level: 90 },
+      { name: "Docker", level: 60 },
+      { name: "Vercel", level: 85 },
     ],
   },
 ];
@@ -135,7 +135,7 @@ export const experience: Experience[] = [
 ];
 
 export const projects = [
-   {
+  {
     id: "medistore-platform",
     title: "MediStore — OTC Medicine E-Commerce",
     subtitle: "Full-Stack Medicine Ordering System",
@@ -162,38 +162,88 @@ export const projects = [
       "Handling protected routes and secure API communication between Next.js frontend and Express backend.",
       "Managing state and data fetching efficiently in Next.js App Router environment.",
       "Implemented secure cross-domain authentication between Next.js and Express in production, resolving cookie transmission issues caused by SameSite and HTTPS constraints by correctly configuring CORS, secure cookies, and credential-based requests.",
-      "Integrate online payment gateway (e.g. SSLCommerz)."
+      "Integrate online payment gateway (e.g. SSLCommerz).",
     ],
     improvements: [
-      
       "Add advanced search, filtering, and pagination for products.",
       "Implement Redis caching for performance optimization.",
       "Introduce Docker-based deployment for consistent environments.",
     ],
     featured: true,
   },
+ 
   {
-  id: "gadget-king",
-  title: "Gadget King",
-  subtitle: "React E-commerce Web Application",
-  shortDescription:
-    "A modern e-commerce frontend with cart, wishlist, product sorting, and analytics features.",
+    id: "vroom",
+    title: "Vroom — Premium Vehicle Rental Platform",
+    subtitle: "Full-Stack Vehicle Rental Management System",
+    shortDescription:
+      "A production-ready full-stack vehicle rental platform with JWT authentication, real-time booking, admin analytics dashboard, and a RESTful API backed by PostgreSQL.",
+    image: "/projects/vroom.png",
+    placeholder: "#1f2937",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "shadcn/ui",
+      "Framer Motion",
+      "GSAP",
+      "Recharts",
+      "Node.js",
+      "Express",
+      "Prisma ORM",
+      "PostgreSQL",
+      "JWT",
+      "bcrypt",
+      "Sonner",
+      "Lenis",
+    ],
+    liveUrl: "https://vehicle-rental-management-frontend.vercel.app/",
+    githubUrl:
+      "https://github.com/selim2066/Vehicle_Rental_Management-Frontend",
+    description: `
+Vroom is a production-ready, full-stack vehicle rental management platform with separate customer and admin experiences. Customers can browse the full fleet with multi-filter search (type, fuel, transmission, price range), book vehicles with automatic price calculation, submit verified reviews tied to completed bookings, manage their booking history, and update their profile.
 
-  image: "/projects/banner gadgetking.jpg",
-  placeholder: "#1a1a2e",
+On the backend, a RESTful Express + TypeScript API handles all business logic through a clean Route → Controller → Service architecture. Booking creation is wrapped in a Prisma transaction to prevent race conditions and double-bookings. An auto-return scheduler runs on startup and every hour to mark expired rentals as returned and free vehicle availability automatically.
 
-  tech: [
-    "React",
-    "Tailwind CSS",
-    "DaisyUI",
-    "React Router",
-    "Context API"
-  ],
+Admins get a full dashboard with live KPI stats (revenue, active bookings, fleet availability), Recharts-powered charts for monthly revenue trends, booking status breakdown, and vehicle type distribution, plus full fleet management, booking status control, and user management with soft-delete.
 
-  liveUrl: "https://gadget-king.netlify.app/",
-  githubUrl: "https://github.com/selim2066/gadget-king",
+Auth uses short-lived JWT access tokens (15 min) with rotating refresh tokens (7 days) stored and invalidated in PostgreSQL — a secure, stateful token strategy suited for production use.
+  `,
+    challenges: [
+      "Preventing double-booking race conditions by wrapping booking creation in a Prisma atomic transaction that checks availability and locks the vehicle in a single DB operation.",
+      "Implementing a rotating refresh token strategy where each use invalidates the old token and issues a new one — requiring careful coordination between the auth service and token storage.",
+      "Building an auto-return scheduler that runs on server startup and hourly to mark expired bookings as returned and reset vehicle availability without manual admin intervention.",
+      "Designing a modular Next.js frontend service layer that maps cleanly to each backend domain (auth, vehicles, bookings, reviews, users) while remaining SSR-compatible with the App Router.",
+      "Integrating Framer Motion, GSAP, and Lenis smooth scroll simultaneously without animation conflicts, while keeping the dashboard fully functional and performant.",
+      "Enforcing role-based access control across both layers — admin vs. customer guards on protected API routes and matching route protection on the frontend dashboard.",
+    ],
+    improvements: [
+      "Add WebSocket or SSE support for real-time booking notifications to both customers and admins.",
+      "Introduce Cloudinary or S3 image upload so admins can upload vehicle photos directly from the dashboard instead of pasting URLs.",
+      "Add a map view for vehicle pickup and drop-off location selection using Mapbox or Google Maps.",
+      "Write unit and integration tests for critical service logic (booking creation, auth flow) using Vitest and Supertest.",
+      "Add email notifications for booking confirmations, cancellations, and rental reminders via Nodemailer or Resend.",
+      "Extend admin analytics with date-range filtering and exportable CSV reports.",
+    ],
+    featured: false,
+  },
+   {
+    id: "gadget-king",
+    title: "Gadget King",
+    subtitle: "React E-commerce Web Application",
+    shortDescription:
+      "A modern e-commerce frontend with cart, wishlist, product sorting, and analytics features.",
 
-  description: `
+    image: "/projects/banner gadgetking.jpg",
+    placeholder: "#1a1a2e",
+
+    tech: ["React", "Tailwind CSS", "DaisyUI", "React Router", "Context API"],
+
+    liveUrl: "https://gadget-king.netlify.app/",
+    githubUrl: "https://github.com/selim2066/gadget-king",
+
+    description: `
 Gadget King is a responsive e-commerce web application built using React. 
 It allows users to browse products, sort them by price, and manage cart and wishlist efficiently. 
 
@@ -201,69 +251,23 @@ The application includes product statistics tracking, showing how frequently ite
 It focuses on clean UI/UX using Tailwind CSS and DaisyUI, along with smooth routing using React Router.
   `,
 
-  challenges: [
-    "Managing global state for cart and wishlist using Context API without external libraries.",
-    "Implementing dynamic price sorting (ascending/descending) efficiently.",
-    "Tracking and visualizing product statistics based on user interactions.",
-    "Ensuring consistent UI updates across multiple pages using shared state."
-  ],
+    challenges: [
+      "Managing global state for cart and wishlist using Context API without external libraries.",
+      "Implementing dynamic price sorting (ascending/descending) efficiently.",
+      "Tracking and visualizing product statistics based on user interactions.",
+      "Ensuring consistent UI updates across multiple pages using shared state.",
+    ],
 
-  improvements: [
-    "Add backend integration (Node.js + Express + PostgreSQL) for persistent data.",
-    "Implement authentication system (JWT / BetterAuth).",
-    "Add product search and advanced filtering (category, rating, price range).",
-    "Integrate payment gateway for real checkout functionality.",
-    "Optimize performance and add loading skeletons."
-  ],
+    improvements: [
+      "Add backend integration (Node.js + Express + PostgreSQL) for persistent data.",
+      "Implement authentication system (JWT / BetterAuth).",
+      "Add product search and advanced filtering (category, rating, price range).",
+      "Integrate payment gateway for real checkout functionality.",
+      "Optimize performance and add loading skeletons.",
+    ],
 
-  featured: true,
-},
-  {
-  id: "pawstep",
-  title: "PawStep — Pet Adoption Platform",
-  subtitle: "Interactive Pet Adoption Web App",
-
-  shortDescription:
-    "A responsive web app for browsing and adopting pets with filtering, sorting, and interactive UI features.",
-
-  image: "/projects/pawstep.png",
-  placeholder: "#1f2937",
-
-  tech: [
-    "HTML",
-    "CSS",
-    "JavaScript (ES6+)",
-    "Tailwind CSS"
-  ],
-
-  liveUrl: "https://pawstep.netlify.app/",
-  githubUrl: "https://github.com/selim2066/pawstep",
-
-  description: `
-PawStep is a dynamic pet adoption web application that allows users to explore pets by category, sort them by price, and interact with each listing through likes, adoption actions, and detailed views.
-
-The application features a smooth adoption flow with a countdown timer, enhancing user engagement. Users can also save their favorite pets using a like system, which displays selected pets in a sidebar grid.
-
-Built with vanilla JavaScript and Tailwind CSS, the project focuses on responsive design, clean UI, and efficient DOM manipulation.
-  `,
-
-  challenges: [
-    "Managing dynamic UI updates and state without using a frontend framework.",
-    "Implementing real-time sorting and category filtering logic.",
-    "Handling liked pets state and rendering them in a separate sidebar.",
-    "Creating a smooth countdown-based adoption interaction using JavaScript."
-  ],
-
-  improvements: [
-    "Convert the project into React for better state management.",
-    "Add backend integration to persist pet data and user actions.",
-    "Implement user authentication (login/signup).",
-    "Add advanced filtering (age, breed, price range).",
-    "Improve performance and add loading skeletons."
-  ],
-
-  featured: false,
-}
+    featured: true,
+  },
 ];
 
 export const navLinks = [
