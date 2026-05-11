@@ -2,7 +2,8 @@
 
 import { navLinks, personalInfo } from "@/lib/data";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Terminal, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
@@ -70,17 +71,24 @@ export default function Navbar() {
           <motion.button
             onClick={() => handleNavClick("#home")}
             className="flex items-center gap-2 group"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.12 }}
           >
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center"
+            <motion.div
+              className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-10"
               style={{
                 background: "var(--color-accent-dim)",
                 border: "1px solid var(--color-border)",
               }}
+              whileHover={{
+                boxShadow:
+                  "0 0 16px var(--color-accent), 0 0 32px var(--color-accent)",
+                borderColor: "var(--color-accent)",
+                background: "var(--color-accent-dim)",
+              }}
+              transition={{ duration: 1 }}
             >
-              <Terminal size={14} style={{ color: "var(--color-accent)" }} />
-            </div>
+              <Image src="/logo.png" alt="Logo" width={36} height={36} />
+            </motion.div>
             <span
               className="font-display font-bold text-base text-xl hidden sm:block"
               style={{ color: "var(--color-text)" }}

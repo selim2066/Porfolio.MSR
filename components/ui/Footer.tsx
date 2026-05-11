@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { personalInfo, socialLinks, navLinks } from "@/lib/data";
 import { Github, Linkedin, Twitter, Facebook, Terminal, Heart } from "lucide-react";
+import Image from "next/image";
 
 const iconMap: Record<string, React.ElementType> = {
   github: Github,
@@ -39,13 +40,32 @@ export default function Footer() {
             {/* BRAND */}
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center 
-                  bg-white/10 border border-white/10 backdrop-blur-md">
-                  <Terminal size={16} className="text-accent" />
-                </div>
+                <motion.button
+                            onClick={() => handleNavClick("#home")}
+                            className="flex items-center gap-2 group"
+                            whileHover={{ scale: 1.12 }}
+                          >
+                            <motion.div
+                              className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-10"
+                              style={{
+                                background: "var(--color-accent-dim)",
+                                border: "1px solid var(--color-border)",
+                              }}
+                              whileHover={{
+                                boxShadow:
+                                  "0 0 16px var(--color-accent), 0 0 32px var(--color-accent)",
+                                borderColor: "var(--color-accent)",
+                                background: "var(--color-accent-dim)",
+                              }}
+                              transition={{ duration: 1 }}
+                            >
+                              <Image src="/logo.png" alt="Logo" width={36} height={36} />
+                            </motion.div>
+                            
+                          </motion.button>
 
-                <span className="font-display text-lg font-semibold text-white">
-                  {personalInfo.firstName}
+                <span className="font-display text-xl font-semibold text-white">
+                  {personalInfo.Nickname}
                   <span className="text-accent">.</span>
                 </span>
               </div>
@@ -127,9 +147,7 @@ export default function Footer() {
             </p>
 
             <p className="text-xs text-white/60 font-mono flex items-center gap-1">
-              Built with
-              <Heart size={12} className="text-accent fill-current" />
-              using Next.js
+              Thanks for visiting!
             </p>
 
           </div>
