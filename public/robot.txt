@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mdselimreza.vercel.app/sitemap.xml
