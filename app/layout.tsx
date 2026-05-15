@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Md Selim Reza Backend Developer",
     "graduate of Green University of Bangladesh",
     "Full Stack Developer available for hire",
-    "graduate in Computer Science and Engineering",
+    "graduate in Computer Science and Engineering","Next.js React Node.js PostgreSQL developer",
   ],
   authors: [{ name: "Md. Selim Reza", url: "https://mdselimreza.vercel.app" }],
   creator: "Md. Selim Reza",
