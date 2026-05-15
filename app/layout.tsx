@@ -3,6 +3,9 @@ import "../styles/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mdselimreza.vercel.app"),
+  verification: {
+    google: "Cx-b0Hl8hmp4bGEGNFyLKONWZ2XXtJJjIPFlHW4FEFg",
+  },
   title: {
     default: "Md. Selim Reza — Full Stack Developer",
     template: "%s | Md. Selim Reza",
