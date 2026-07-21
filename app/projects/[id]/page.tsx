@@ -166,7 +166,7 @@ export default function ProjectDetailPage() {
             className="btn-outline"
           >
             <Github size={16} />
-            GitHub (Client)
+            Github
           </a>
         </motion.div>
 

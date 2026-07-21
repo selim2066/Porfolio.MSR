@@ -142,7 +142,7 @@ export const projects = [
     shortDescription:
       "A full-stack e-commerce platform for OTC medicines with authentication, role-based access, product management, and secure backend APIs.",
     image: "/projects/medistore-hero.png",
-   
+
     tech: [
       "Next.js",
       "TypeScript",
@@ -171,7 +171,7 @@ export const projects = [
     ],
     featured: true,
   },
- 
+
   {
     id: "vroom",
     title: "Vroom — Premium Vehicle Rental Platform",
@@ -228,7 +228,79 @@ Auth uses short-lived JWT access tokens (15 min) with rotating refresh tokens (7
     ],
     featured: false,
   },
-   {
+
+  {
+    id: "task-management-system",
+    title: "TMS — Full-Stack Task Management System",
+    subtitle: "Team Task & Project Tracking Platform",
+    shortDescription:
+      "A full-stack task management application with authentication, role-based boards, task assignment, and real-time status tracking.",
+    image: "/projects/tms01.png",
+
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "Shadcn UI",
+    ],
+    liveUrl: "https://tms-task-msr.vercel.app/",
+    githubUrl: "https://github.com/selim2066/Task-Management-System-AgamiSoft",
+    description: `TaskFlow is a full-stack task management platform built with Next.js (App Router) on the frontend and Express.js with TypeScript on the backend. It supports user authentication, task creation and assignment, status tracking (To Do, In Progress, Done), and project-based organization. The backend is powered by PostgreSQL and Prisma, handling relational data between users, projects, and tasks with a clean, scalable schema.`,
+    challenges: [
+      "Designing a relational schema for users, projects, and tasks with proper foreign key relationships and cascading updates.",
+      "Building drag-and-drop status updates (To Do → In Progress → Done) with optimistic UI updates before backend confirmation.",
+      "Handling task assignment and filtering by assignee, status, and due date efficiently on the client.",
+      "Structuring protected API routes and secure session handling between the Next.js frontend and Express backend.",
+      "Managing real-time-feeling updates (task moves, edits) without over-fetching from the database on every interaction.",
+    ],
+    improvements: [
+      "Add real-time collaboration via WebSockets so task updates sync live across users.",
+      "Implement activity logs and notifications for task changes and comments.",
+      "Add file attachments and due-date reminders via email.",
+    ],
+    featured: true,
+  },
+
+  {
+    id: "oxivos-fashion",
+    title: "OxivosFashion — Fashion E-Commerce Storefront",
+    subtitle: "Frontend Fashion Store with Editorial Design System",
+    shortDescription:
+      "A fully responsive fashion e-commerce frontend with product browsing, filtering, cart, and wishlist, built on a custom editorial design system with no backend.",
+    image: "/projects/oxivos-fashion-hero.png",
+
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
+      "Lenis",
+      "Shadcn UI",
+    ],
+    liveUrl: "https://oxivos-fashion-sepia.vercel.app/",
+    githubUrl: "https://github.com/selim2066/Oxivos-Fashion",
+    description: `OxivosFashion is a frontend-only fashion e-commerce storefront built with Next.js (App Router) and TypeScript, using a local product catalog instead of a backend. It includes a home page with an auto-rotating hero carousel, a filterable product listing page, product detail pages with color/size selectors, and a fully functional cart and wishlist powered by React Context with localStorage persistence. The UI runs on a custom token-driven design system (colors, type scale, spacing) built from a Stitch-generated reference, with Framer Motion, GSAP, and Lenis handling scroll and transition animations.`,
+    challenges: [
+      "Translating a Stitch-generated design system (DESIGN.md tokens) into a consistent Tailwind config so every component stayed visually aligned without hardcoded values.",
+      "Building a circular, symmetric product carousel after an earlier stacked-card version broke down asymmetrically at the array edges.",
+      "Implementing dark/light theming with next-themes across every component without breaking contrast on product images, overlays, and text.",
+      "Managing cart and wishlist state through React Context with localStorage persistence, keeping totals and item counts as derived values rather than duplicated state.",
+      "Handling edge cases across the shopping flow — empty cart, out-of-stock products, no filter results, invalid product IDs.",
+      "Replacing a native browser alert() checkout confirmation with a themed toast notification for a production-consistent feel.",
+    ],
+    improvements: [
+      "Add a real backend and payment integration (e.g. SSLCommerz) to move beyond the dummy-data demo.",
+      "Add search functionality and price-based sorting on the product listing page.",
+      "Introduce skeleton loading states across all data-dependent routes for smoother perceived performance.",
+    ],
+    featured: true,
+  },
+  {
     id: "gadget-king",
     title: "Gadget King",
     subtitle: "React E-commerce Web Application",
