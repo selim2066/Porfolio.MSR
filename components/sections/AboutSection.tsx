@@ -11,6 +11,7 @@ import {
   Terminal,
   Layers,
   Zap,
+  Award,
 } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -202,29 +203,51 @@ function PhotoCard({ inView }: { inView: boolean }) {
             </div>
           </div>
 
-          {/* Download CV */}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-display font-semibold transition-all duration-300"
-            style={{
-              background: "var(--color-accent)",
-              color: "#ffffff",
-              boxShadow: "0 4px 20px var(--color-accent-glow)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 30px var(--color-accent-glow)";
-              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px var(--color-accent-glow)";
-              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-            }}
-          >
-            <Download size={14} />
-            Download CV
-          </a>
+          {/* Action Buttons */}
+          <div className="flex gap-2 mt-4">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-display font-semibold transition-all duration-300"
+              style={{
+                background: "var(--color-accent)",
+                color: "#ffffff",
+                boxShadow: "0 4px 20px var(--color-accent-glow)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 30px var(--color-accent-glow)";
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px var(--color-accent-glow)";
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+              }}
+            >
+              <Download size={14} />
+              Resume
+            </a>
+            <a
+              href="/certificate/programming-hero-level-2.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-display font-semibold transition-all duration-300"
+              style={{
+                background: "var(--color-surface)",
+                color: "var(--color-text)",
+                border: "1px solid var(--color-border)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+              }}
+            >
+              <Award size={14} />
+              Certificate
+            </a>
+          </div>
         </div>
       </div>
 

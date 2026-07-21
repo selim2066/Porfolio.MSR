@@ -13,6 +13,7 @@ import {
   ArrowDown,
   MapPin,
   Circle,
+  Award,
 } from "lucide-react";
 import { personalInfo, socialLinks } from "@/lib/data";
 
@@ -168,9 +169,18 @@ export default function HeroSection() {
             </motion.p>
 
             {/* BUTTONS */}
-            <motion.div variants={itemVariants} className="flex gap-4 mb-10">
+            <motion.div variants={itemVariants} className="flex gap-4 mb-10 flex-wrap">
               <a href={personalInfo.resumeUrl} download className="btn-primary">
                 <Download size={16} /> Resume
+              </a>
+              <a
+                href="/certificate/programming-hero-level-2.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline"
+                title="View Certificate"
+              >
+                <Award size={16} /> Certificate
               </a>
               <button
                 className="btn-outline"

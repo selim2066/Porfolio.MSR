@@ -342,6 +342,17 @@ It focuses on clean UI/UX using Tailwind CSS and DaisyUI, along with smooth rout
   },
 ];
 
+export const certifications = [
+  {
+    organization: "Programming Hero",
+    title: "Next Level AI-Driven Software Engineering Bootcamp",
+    duration: "8 months · Completed 2026",
+    certificateUrl: "/certificate/programming-hero-level-2.pdf",
+    certificateImage: "/certificate/programming-hero-l2.png",
+    image: "https://images.unsplash.com/vector-1739202818877-ac7ee9d75792?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
