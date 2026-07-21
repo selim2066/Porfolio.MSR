@@ -108,15 +108,15 @@ export default function ContactSection() {
 
   const inputStyle = {
     background: "var(--color-surface-2)",
-    border: "1px solid var(--color-border)",
-    borderRadius: "0.5rem",
+    border: "1px solid transparent",
+    borderRadius: "0.75rem",
     padding: "0.75rem 1rem",
     color: "var(--color-text)",
     fontSize: "0.9rem",
     fontFamily: "var(--font-body)",
     width: "100%",
     outline: "none",
-    transition: "border-color 0.2s ease",
+    transition: "border-color 0.2s ease, box-shadow 0.2s ease",
   };
 
   return (
@@ -124,7 +124,6 @@ export default function ContactSection() {
       id="contact"
       className="section-padding"
       ref={ref}
-      style={{ background: "var(--color-surface)" }}
     >
       <div className="container-custom">
         {/* Header */}
@@ -151,7 +150,7 @@ export default function ContactSection() {
             />
           </div>
           <p
-            className="mt-4 max-w-lg text-base"
+            className="mt-4 max-w-lg text-base text-center"
             style={{ color: "var(--color-muted-2)" }}
           >
             Have a project in mind or just want to say hi? My inbox is always
@@ -181,15 +180,13 @@ export default function ContactSection() {
                   whileHover={{ x: 4 }}
                   className="card-base p-4 flex items-center gap-4 cursor-pointer"
                   style={{
-                    background: "var(--color-bg)",
                     textDecoration: "none",
                   }}
                 >
                   <div
-                    className="w-11 h-11 rounded-lg flex items-center justify-center shrink-0"
+                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
                     style={{
                       background: `${item.color}18`,
-                      border: `1px solid ${item.color}30`,
                     }}
                   >
                     <Icon size={18} style={{ color: item.color }} />
@@ -222,7 +219,6 @@ export default function ContactSection() {
           >
             <div
               className="card-base p-6 md:p-8"
-              style={{ background: "var(--color-bg)" }}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>

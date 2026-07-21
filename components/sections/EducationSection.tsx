@@ -89,11 +89,7 @@ export default function EducationSection() {
 
                 {/* Card */}
                 <div
-                  className="rounded-2xl p-4 border"
-                  style={{
-                    background: "var(--color-surface)",
-                    borderColor: "var(--color-border)",
-                  }}
+                  className="card-base p-4"
                 >
                   {/* Status + Date row */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -176,10 +172,6 @@ export default function EducationSection() {
                 >
                   <div
                     className="card-base p-6 backdrop-blur-md"
-                    style={{
-                      borderColor: "var(--color-border)",
-                      boxShadow: "none",
-                    }}
                   >
                     {/* Status + Date */}
                     <div className="flex items-center justify-between mb-3 flex-wrap gap-2">

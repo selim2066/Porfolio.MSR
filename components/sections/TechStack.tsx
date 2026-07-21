@@ -18,7 +18,7 @@ const skills = [
   },
   {
     name: "Next.js",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    icon: "https://skillicons.dev/icons?i=nextjs",
   },
   {
     name: "Node.js",
@@ -26,7 +26,7 @@ const skills = [
   },
   {
     name: "Express",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    icon: "https://skillicons.dev/icons?i=express",
   },
   {
     name: "PostgreSQL",
@@ -38,7 +38,7 @@ const skills = [
   },
   {
     name: "Prisma",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+    icon: "https://skillicons.dev/icons?i=prisma",
   },
   {
     name: "Tailwind CSS",
@@ -54,11 +54,11 @@ const skills = [
   },
   {
     name: "GitHub",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    icon: "https://skillicons.dev/icons?i=github",
   },
   {
     name: "Vercel",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    icon: "https://skillicons.dev/icons?i=vercel",
   },
   {
     name: "VS Code",
@@ -85,7 +85,7 @@ export default function TechStack() {
   return (
     <section
       id="skills"
-      className="section-padding bg-[var(--color-surface)]"
+      className="section-padding"
       ref={ref}
     >
       <div className="container-custom">
@@ -96,83 +96,75 @@ export default function TechStack() {
           className="mb-12 flex flex-col items-center justify-center"
         >
           <p className="section-label mb-3">Tools and Technologies</p>
-          <h2 className="text-4xl md:text-6xl font-bold text-white">
-            My <span className="text-[var(--color-accent)]">Tech Stack</span>
+          <h2 className="text-4xl md:text-6xl font-bold" style={{ color: "var(--color-text)" }}>
+            My <span style={{ color: "var(--color-accent)" }}>Tech Stack</span>
           </h2>
         </motion.div>
 
         {/* Icons Grid */}
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-          {skills.map((skill, i) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{
-                duration: 0.4,
-                delay: i * 0.05,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex flex-col items-center gap-3 group cursor-default"
-            >
-              {/* Icon circle */}
-              <div
-                className="relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                style={{
-                  background: "var(--color-surface)",
-                  border: "1px solid var(--color-border)",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
+          {skills.map((skill, i) => {
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{
+                  duration: 0.4,
+                  delay: i * 0.05,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
+                className="flex flex-col items-center gap-3 group cursor-default"
               >
-                {/* Accent ring on hover */}
+                {/* Icon circle */}
                 <div
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                   style={{
-                    border: "1.5px solid var(--color-accent)",
-                    boxShadow: "0 0 16px var(--color-accent-glow)",
+                    background: "var(--color-surface)",
+                    boxShadow: "var(--shadow-soft)",
                   }}
-                />
+                >
+                  {/* Accent ring on hover */}
+                  <div
+                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      border: "1.5px solid var(--color-accent)",
+                      boxShadow: "0 0 16px var(--color-accent-glow)",
+                    }}
+                  />
 
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={skill.icon}
-                  alt={skill.name}
-                  width={34}
-                  height={34}
-                  className="relative z-10 transition-all duration-300 group-hover:scale-110"
-                  style={{
-                    filter:
-                      skill.name === "Express" ||
-                      skill.name === "GitHub" ||
-                      skill.name === "Vercel"
-                        ? "invert(1)"
-                        : "none",
-                  }}
-                  onError={(e) => {
-                    // fallback: show first letter if icon fails
-                    const target = e.currentTarget;
-                    target.style.display = "none";
-                    const parent = target.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement("span");
-                      fallback.textContent = skill.name[0];
-                      fallback.style.cssText =
-                        "font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700; color: var(--color-accent);";
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
-              </div>
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    width={34}
+                    height={34}
+                    className="relative z-10 transition-all duration-300 group-hover:scale-110"
+                    onError={(e) => {
+                      // fallback: show first letter if icon fails
+                      const target = e.currentTarget;
+                      target.style.display = "none";
+                      const parent = target.parentElement;
+                      if (parent) {
+                        const fallback = document.createElement("span");
+                        fallback.textContent = skill.name[0];
+                        fallback.style.cssText =
+                          "font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700; color: var(--color-accent);";
+                        parent.appendChild(fallback);
+                      }
+                    }}
+                  />
+                </div>
 
-              {/* Label */}
-              <span
-                className="font-mono text-xs text-center transition-colors duration-300 group-hover:text-accent"
-                style={{ color: "var(--color-muted-2)" }}
-              >
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
+                {/* Label */}
+                <span
+                  className="font-mono text-xs text-center transition-colors duration-300 group-hover:text-accent"
+                  style={{ color: "var(--color-muted-2)" }}
+                >
+                  {skill.name}
+                </span>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

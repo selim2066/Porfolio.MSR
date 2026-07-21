@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mdselimreza.vercel.app"),
@@ -71,13 +72,15 @@ export const metadata: Metadata = {
   },
 };
 
+import SmoothScrolling from "@/components/SmoothScrolling";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" className="dark">
       <head>
         <script
           type="application/ld+json"
@@ -110,7 +113,11 @@ export default function RootLayout({
         />
       </head>
       <body className="noise">
-        {children}
+        <SmoothScrolling>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </SmoothScrolling>
       </body>
     </html>
   );

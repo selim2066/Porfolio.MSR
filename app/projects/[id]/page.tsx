@@ -87,9 +87,8 @@ export default function ProjectDetailPage() {
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative rounded-xl overflow-hidden mb-10 border"
+          className="relative rounded-2xl overflow-hidden mb-10 card-base"
           style={{
-            borderColor: "var(--color-border)",
             height: "320px",
           }}
         >

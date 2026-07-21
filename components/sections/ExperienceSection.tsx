@@ -53,14 +53,12 @@ export default function ExperienceSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="card-base p-6"
-              style={{ background: "var(--color-bg)" }}
             >
               <div className="flex items-start gap-4">
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                   style={{
                     background: "var(--color-accent-dim)",
-                    border: "1px solid var(--color-border)",
                   }}
                 >
                   <Briefcase

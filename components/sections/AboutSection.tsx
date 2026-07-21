@@ -128,9 +128,9 @@ function PhotoCard({ inView }: { inView: boolean }) {
       <div
         className="relative rounded-3xl overflow-hidden border"
         style={{
-          background: "linear-gradient(135deg, rgba(15,19,24,0.95) 0%, rgba(22,28,36,0.95) 100%)",
-          borderColor: "rgba(0,229,176,0.3)",
-          boxShadow: "0 30px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,229,176,0.2)",
+          background: "linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-2) 100%)",
+          borderColor: "var(--color-border)",
+          boxShadow: "var(--shadow-soft)",
         }}
       >
         {/* Glare overlay */}
@@ -158,7 +158,7 @@ function PhotoCard({ inView }: { inView: boolean }) {
           {/* Bottom fade */}
           <div
             className="absolute bottom-0 inset-x-0 h-32 pointer-events-none"
-            style={{ background: "linear-gradient(to top, rgba(15,19,24,1) 0%, transparent 100%)" }}
+            style={{ background: "linear-gradient(to top, var(--color-surface) 0%, transparent 100%)" }}
           />
         </div>
 
@@ -167,36 +167,36 @@ function PhotoCard({ inView }: { inView: boolean }) {
           <div className="flex items-center gap-2 mb-1">
             <span
               className="w-2 h-2 rounded-full animate-pulse"
-              style={{ background: "#00e5b0", boxShadow: "0 0 8px #00e5b0" }}
+              style={{ background: "var(--color-accent)", boxShadow: "0 0 8px var(--color-accent-glow)" }}
             />
-            <span className="text-xs font-mono" style={{ color: "#00e5b0" }}>
+            <span className="text-xs font-mono" style={{ color: "var(--color-accent)" }}>
               Available for work
             </span>
           </div>
-          <h3 className="font-display font-bold text-xl" style={{ color: "#e8edf2" }}>
+          <h3 className="font-display font-bold text-xl" style={{ color: "var(--color-text)" }}>
             Selim
           </h3>
-          <p className="text-sm" style={{ color: "#8899aa" }}>
+          <p className="text-sm" style={{ color: "var(--color-muted-2)" }}>
             Full-Stack Developer
           </p>
 
           {/* Info row */}
           <div className="mt-3 flex flex-col gap-1.5">
             <div className="flex items-center gap-2">
-              <MapPin size={12} style={{ color: "#00e5b0" }} />
-              <span className="text-xs font-mono" style={{ color: "#8899aa" }}>
+              <MapPin size={12} style={{ color: "var(--color-accent)" }} />
+              <span className="text-xs font-mono" style={{ color: "var(--color-muted-2)" }}>
                 Dhaka, Bangladesh
               </span>
             </div>
             <div className="flex items-center gap-2">
               <Terminal size={12} style={{ color: "#6366f1" }} />
-              <span className="text-xs font-mono" style={{ color: "#8899aa" }}>
+              <span className="text-xs font-mono" style={{ color: "var(--color-muted-2)" }}>
                 Next.js · Node.js · PostgreSQL
               </span>
             </div>
             <div className="flex items-center gap-2">
               <Mail size={12} style={{ color: "#f59e0b" }} />
-              <span className="text-xs font-mono" style={{ color: "#8899aa" }}>
+              <span className="text-xs font-mono" style={{ color: "var(--color-muted-2)" }}>
                 Open to remote opportunities
               </span>
             </div>
@@ -209,16 +209,16 @@ function PhotoCard({ inView }: { inView: boolean }) {
             rel="noopener noreferrer"
             className="mt-4 w-full flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-display font-semibold transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, #00e5b0, #00c49a)",
-              color: "#080b0f",
-              boxShadow: "0 4px 20px rgba(0,229,176,0.35)",
+              background: "var(--color-accent)",
+              color: "#ffffff",
+              boxShadow: "0 4px 20px var(--color-accent-glow)",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 30px rgba(0,229,176,0.55)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 30px var(--color-accent-glow)";
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(0,229,176,0.35)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px var(--color-accent-glow)";
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
             }}
           >
@@ -234,7 +234,7 @@ function PhotoCard({ inView }: { inView: boolean }) {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-20 flex items-center gap-1.5 rounded-full px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-mono border"
         style={{
-          background: "rgba(15,19,24,0.95)",
+          background: "var(--color-surface)",
           borderColor: "rgba(99,102,241,0.4)",
           color: "#6366f1",
           backdropFilter: "blur(12px)",
@@ -261,14 +261,14 @@ function StatCard({ stat, i, inView }: { stat: typeof stats[0]; i: number; inVie
       transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
       className="relative group rounded-2xl p-4 text-center border overflow-hidden cursor-default"
       style={{
-        background: "rgba(15,19,24,0.8)",
-        borderColor: "rgba(0,229,176,0.12)",
+        background: "var(--color-surface)",
+        borderColor: "var(--color-border)",
         backdropFilter: "blur(12px)",
       }}
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: "radial-gradient(circle at center, rgba(0,229,176,0.06) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle at center, var(--color-accent-dim) 0%, transparent 70%)" }}
       />
       <Icon size={18} className="mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
       <p className="font-display font-bold text-2xl" style={{ color: "var(--color-accent)" }}>
@@ -353,9 +353,9 @@ function HighlightCard({
       className="relative rounded-2xl p-4 sm:p-5 border flex items-start gap-3 sm:gap-4 overflow-hidden group transition-all duration-300"
       style={{
         background: hovered
-          ? `linear-gradient(135deg, rgba(15,19,24,0.95), ${card.accent}10)`
-          : "rgba(15,19,24,0.8)",
-        borderColor: hovered ? `${card.accent}50` : "rgba(0,229,176,0.1)",
+          ? "var(--color-surface-2)"
+          : "var(--color-surface)",
+        borderColor: hovered ? `${card.accent}50` : "var(--color-border)",
         boxShadow: hovered ? `0 15px 50px ${card.accent}12` : "none",
         backdropFilter: "blur(12px)",
         transform: hovered ? "translateY(-3px)" : "translateY(0)",
@@ -414,7 +414,7 @@ export default function AboutSection() {
           transform: "translate(-50%, -50%)",
           width: "900px",
           height: "600px",
-          background: "radial-gradient(ellipse at center, rgba(0,229,176,0.04) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at center, var(--color-accent-dim) 0%, transparent 65%)",
           zIndex: 0,
         }}
       />
@@ -427,10 +427,9 @@ export default function AboutSection() {
           transition={{ duration: 0.7 }}
           className="mb-10 sm:mb-14 lg:mb-16 text-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full px-3 sm:px-4 py-1.5 mb-4 sm:mb-5 border text-xs font-mono"
+          <div className="inline-flex items-center gap-2 rounded-full px-3 sm:px-4 py-1.5 mb-4 sm:mb-5 text-xs font-mono shadow-sm"
             style={{
-              background: "rgba(0,229,176,0.06)",
-              borderColor: "rgba(0,229,176,0.2)",
+              background: "var(--color-accent-dim)",
               color: "var(--color-accent)",
             }}
           >
@@ -450,7 +449,7 @@ export default function AboutSection() {
             <span
               style={{
                 color: "var(--color-accent)",
-                textShadow: "0 0 30px rgba(0,229,176,0.4)",
+                textShadow: "0 0 30px var(--color-accent-glow)",
               }}
             >
               Me
@@ -488,17 +487,16 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="rounded-2xl p-5 sm:p-6 border relative overflow-hidden"
+              className="rounded-2xl p-5 sm:p-6 card-base relative overflow-hidden"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(0,229,176,0.05) 0%, rgba(15,19,24,0.95) 60%)",
-                borderColor: "rgba(0,229,176,0.2)",
+                  "linear-gradient(135deg, var(--color-accent-dim) 0%, var(--color-surface) 60%)",
                 backdropFilter: "blur(12px)",
               }}
             >
               <div
                 className="absolute top-0 right-0 w-40 h-40 rounded-full blur-3xl pointer-events-none"
-                style={{ background: "rgba(0,229,176,0.08)", transform: "translate(30%, -30%)" }}
+                style={{ background: "var(--color-accent-dim)", transform: "translate(30%, -30%)" }}
               />
               <p
                 className="font-mono text-xs mb-3"
@@ -521,10 +519,8 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="rounded-2xl p-5 border"
+              className="rounded-2xl p-5 card-base"
               style={{
-                background: "rgba(15,19,24,0.8)",
-                borderColor: "rgba(0,229,176,0.1)",
                 backdropFilter: "blur(12px)",
               }}
             >

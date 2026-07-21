@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -59,7 +60,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          background: scrolled ? "rgba(8, 11, 15, 0.85)" : "transparent",
+          background: scrolled ? "var(--navbar-bg)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           borderBottom: scrolled
             ? "1px solid var(--color-border)"
@@ -77,7 +78,6 @@ export default function Navbar() {
               className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-10"
               style={{
                 background: "var(--color-accent-dim)",
-                border: "1px solid var(--color-border)",
               }}
               whileHover={{
                 boxShadow:
@@ -131,8 +131,9 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* CTA + Mobile Toggle */}
+          {/* CTA + Theme Toggle + Mobile Toggle */}
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <a
               href={personalInfo.resumeUrl}
               download
@@ -142,10 +143,10 @@ export default function Navbar() {
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg"
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl"
               style={{
                 background: "var(--color-surface)",
-                border: "1px solid var(--color-border)",
+                boxShadow: "var(--shadow-soft)",
                 color: "var(--color-text)",
               }}
             >
@@ -165,7 +166,7 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="fixed top-16 left-0 right-0 z-40 md:hidden"
             style={{
-              background: "rgba(8, 11, 15, 0.97)",
+              background: "var(--mobile-menu-bg)",
               backdropFilter: "blur(20px)",
               borderBottom: "1px solid var(--color-border)",
             }}
@@ -194,13 +195,13 @@ export default function Navbar() {
                 </motion.button>
               ))}
               <div
-                className="pt-3 pb-2 border-t"
+                className="pt-3 pb-2 border-t flex items-center justify-between gap-3"
                 style={{ borderColor: "var(--color-border)" }}
               >
                 <a
                   href={personalInfo.resumeUrl}
                   download
-                  className="btn-primary w-full justify-center text-sm"
+                  className="btn-primary flex-1 justify-center text-sm"
                   onClick={() => setMobileOpen(false)}
                 >
                   Download Resume
@@ -213,3 +214,4 @@ export default function Navbar() {
     </>
   );
 }
+

@@ -112,10 +112,9 @@ export default function HeroSection() {
 
             <motion.div variants={itemVariants} className="mb-6 pt-14">
               <span
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono shadow-sm"
                 style={{
                   background: "var(--color-accent-dim)",
-                  border: "1px solid var(--color-border)",
                   color: "var(--color-accent)",
                 }}
               >
@@ -193,10 +192,10 @@ export default function HeroSection() {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_18px_var(--color-accent)]"
+                    className="w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300 hover:-translate-y-1 hover:scale-110"
                     style={{
                       background: "var(--color-surface)",
-                      border: "1px solid var(--color-border)",
+                      boxShadow: "var(--shadow-soft)",
                       color: "var(--color-muted-2)",
                     }}
                   >
@@ -236,8 +235,8 @@ export default function HeroSection() {
 
               {/* PROFILE IMAGE */}
               <div
-                className="relative w-60 h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-4 z-10 transition-transform duration-500 hover:scale-[1.03]"
-                style={{ borderColor: "var(--color-bg)" }}
+                className="relative w-60 h-60 md:w-72 md:h-72 rounded-full overflow-hidden z-10 transition-transform duration-500 hover:scale-[1.03]"
+                style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.3)" }}
               >
                 <Image
                   src={personalInfo.profileImage}
@@ -252,11 +251,10 @@ export default function HeroSection() {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute left-0 top-1/3 px-4 py-2 rounded-xl z-20"
+                className="absolute left-0 top-1/3 px-4 py-2 rounded-2xl z-20"
                 style={{
                   background: "var(--color-surface)",
-                  border: "1px solid var(--color-border)",
-                  boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
+                  boxShadow: "var(--shadow-soft)",
                 }}
               >
                 <p
@@ -277,11 +275,10 @@ export default function HeroSection() {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute right-0 bottom-1/3 px-4 py-2 rounded-xl z-20"
+                className="absolute right-0 bottom-1/3 px-4 py-2 rounded-2xl z-20"
                 style={{
                   background: "var(--color-surface)",
-                  border: "1px solid var(--color-border)",
-                  boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
+                  boxShadow: "var(--shadow-soft)",
                 }}
               >
                 <p
